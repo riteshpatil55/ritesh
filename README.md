@@ -28,7 +28,7 @@
     </ul>
 
     <h2>My Photo</h2>
-    <img src="download.jpg" width="200" alt="My Photo">
+    <img src="riteh.jpg" width="200" alt="My Photo">
 
     <h2>Connect With Me</h2>
     <a href="mailto:riteshkp009@gmail.com">Email Me</a>
