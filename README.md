@@ -19,6 +19,12 @@
 <body>
     <h1>Welcome to Ritesh Patil's Web Page</h1>
     <p>I am learning Web Development with Bunty Bro 🚀</p>
+<style>
+  body { background: #EFEFEF; color: #333; padding: 20px; max-width: 600px; margin: auto; }
+  h1 { color: #00509E; }
+  button { cursor: pointer; background: #00509E; color: #fff; border: none; border-radius: 5px; }
+  img { border-radius: 50%; }
+</style>
 
     <h2>My Hobbies</h2>
     <ul>
@@ -36,6 +42,13 @@
 <a href="Ritesh_Resume.pdf" download>
   <button style="padding:10px 20px; font-size:16px;">📄 Download My Resume</button>
 </a>
+<!-- Contact Me Section -->
+<h2>Contact Me</h2>
+<p>Email: <a href="mailto:riteshkp009@gmail.com">riteshkp009@gmail.com</a></p>
+
+<!-- Projects Section -->
+<h2>Projects</h2>
+<p>More projects coming soon — stay tuned!</p>
 
 </body>
 </html>
