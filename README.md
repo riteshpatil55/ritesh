@@ -18,13 +18,14 @@
 </head>
 <body>
     <h1>Welcome to Ritesh Patil's Web Page</h1>
-    <p>I am learning Web Development with Bunty Bro 🚀</p>
-<style>
+    <style>
   body { background: #EFEFEF; color: #333; padding: 20px; max-width: 600px; margin: auto; }
   h1 { color: #00509E; }
   button { cursor: pointer; background: #00509E; color: #fff; border: none; border-radius: 5px; }
   img { border-radius: 50%; }
 </style>
+
+    <p>I am learning Web Development with Bunty Bro 🚀</p>
 
     <h2>My Hobbies</h2>
     <ul>
