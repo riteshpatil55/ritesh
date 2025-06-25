@@ -56,8 +56,8 @@
 <p>More projects coming soon — stay tuned!</p>
 <h2 id="images">My Gallery</h2>
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="img1.jpg" alt="Image 1" width="200">
-  <img src="img2.jpg" alt="Image 2" width="200">
+  <img src="image1.jpg" alt="Image 1" width="200">
+  <img src="image2.jpg" alt="Image 2" width="200">
   <img src="img3.jpg" alt="Image 3" width="200">
 </div>
 
