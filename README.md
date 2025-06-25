@@ -54,6 +54,9 @@
 <!-- Projects Section -->
 <h2>Projects</h2>
 <p>More projects coming soon — stay tuned!</p>
+
+<a href="#images">🖼️ View Images</a>
+
 <h2 id="images">My Gallery</h2>
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
   <img src="image1.jpg" alt="Image 1" width="200">
