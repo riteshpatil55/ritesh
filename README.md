@@ -37,7 +37,7 @@
     <h2>My Photo</h2>
     <img src="ritesh.jpg" width="200" alt="My Photo">
     <h2>My Buddie</h2>
-    <img scr="rohit.jpg" width="200" alt="My Photo">
+    <img src="rohit.jpg" width="200" alt="My Buddie">
     <h2>Connect With Me</h2>
     <a href="mailto:riteshkp009@gmail.com">Email Me</a>
     <h2>My Resume</h2>
