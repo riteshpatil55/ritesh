@@ -40,13 +40,16 @@
     <img src="rohit.jpg" width="200" alt="My Buddie">
     <h2>Connect With Me</h2>
     <a href="mailto:riteshkp009@gmail.com">Email Me</a>
+     <h2>Connect With My Buddie</h2>
+    <a href="mailto:rmpatil484@gmail.com">Email Me</a>
     <h2>My Resume</h2>
 <a href="Ritesh_Resume.pdf" download>
   <button style="padding:10px 20px; font-size:16px;">📄 Download My Resume</button>
 </a>
-<!-- Contact Me Section -->
-<h2>Contact Me</h2>
-<p>Email: <a href="mailto:riteshkp009@gmail.com">riteshkp009@gmail.com</a></p>
+<h2>My Buddie Resume</h2>
+<a href="RohitPatil.pdf" download>
+    <button style="padding:10px 20px; front-size:16px;">📄 Download My Resume</button>
+    </a>
 
 <!-- Projects Section -->
 <h2>Projects</h2>
