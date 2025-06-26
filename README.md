@@ -177,8 +177,12 @@ button {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <h2>4.🦖 Dino Runner Game</h2>
+</head>
   <meta charset="UTF-8">
   <title>Dino Runner Game</title>
+     
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -210,10 +214,8 @@ button {
   </style>
 
 
-  <h2>4.🦖 Dino Runner Game</h2>
-  <!DOCTYPE html>
+ 
 <html lang="en">
-<head>
   <meta charset="UTF-8">
   <title>Dino Runner Game</title>
   <style>
