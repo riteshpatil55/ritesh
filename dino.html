@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dino Runner Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #ecf0f1;
+    }
+    #gameCanvas {
+      display: block;
+      margin: 30px auto;
+      border: 3px solid #222;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background: #27ae60;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    p {
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🦖 Dino Runner Game</h2>
+  <canvas id="gameCanvas" width="600" height="200"></canvas>
+  <button id="restartBtn" onclick="restartGame()" style="display:none;">🔁 Restart Game</button>
+  <p id="emojiResult"></p>
+  <p>Press <strong>Space</strong> to jump</p>
+
+  <audio id="jumpSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+  <audio id="hitSound" src="https://www.fesliyanstudios.com/play-mp3/6673" preload="auto"></audio>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const dinoImg = new Image();
+    dinoImg.src = "https://i.ibb.co/2vFc3Tz/dino.png";
+
+    const cloudImg = new Image();
+    cloudImg.src = "https://i.ibb.co/J2Jdktg/cloud.png";
+
+    const jumpSound = document.getElementById("jumpSound");
+    const hitSound = document.getElementById("hitSound");
+
+    let dino = { x: 50, y: 150, width: 44, height: 47, vy: 0, gravity: 1.5, jump: -20 };
+    let cactus = { x: 600, width: 20, height: 40 };
+    let clouds = [ { x: 300, y: 40 }, { x: 500, y: 20 } ];
+
+    let isJumping = false;
+    let gameOver = false;
+    let score = 0;
+
+    function drawDino() {
+      ctx.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
+    }
+
+    function drawCactus() {
+      ctx.fillStyle = "brown";
+      ctx.fillRect(cactus.x, 160, cactus.width, cactus.height);
+    }
+
+    function drawClouds() {
+      ctx.globalAlpha = 0.6;
+      clouds.forEach(cloud => {
+        ctx.drawImage(cloudImg, cloud.x, cloud.y, 50, 30);
+      });
+      ctx.globalAlpha = 1.0;
+    }
+
+    function drawScore() {
+      ctx.fillStyle = "#333";
+      ctx.font = "18px Arial";
+      ctx.fillText("Score: " + score, 480, 30);
+    }
+
+    function update() {
+      if (gameOver) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Dino physics
+      dino.y += dino.vy;
+      dino.vy += dino.gravity;
+
+      if (dino.y > 150) {
+        dino.y = 150;
+        dino.vy = 0;
+        isJumping = false;
+      }
+
+      // Move cactus
+      cactus.x -= 6;
+      if (cactus.x < -cactus.width) {
+        cactus.x = 600 + Math.random() * 100;
+        score++;
+      }
+
+      // Move clouds
+      clouds.forEach(cloud => {
+        cloud.x -= 1;
+        if (cloud.x < -50) cloud.x = 600 + Math.random() * 100;
+      });
+
+      // Collision check
+      if (
+        dino.x < cactus.x + cactus.width &&
+        dino.x + dino.width > cactus.x &&
+        dino.y + dino.height > 160
+      ) {
+        gameOver = true;
+        hitSound.play();
+        document.getElementById("emojiResult").textContent = `💥 Game Over! Final Score: ${score}`;
+        document.getElementById("restartBtn").style.display = "inline-block";
+      }
+
+      drawClouds();
+      drawDino();
+      drawCactus();
+      drawScore();
+
+      requestAnimationFrame(update);
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.code === "Space" && !isJumping && !gameOver) {
+        dino.vy = dino.jump;
+        isJumping = true;
+        jumpSound.play();
+      }
+    });
+
+    function restartGame() {
+      cactus.x = 600;
+      dino.y = 150;
+      dino.vy = 0;
+      score = 0;
+      gameOver = false;
+      document.getElementById("emojiResult").textContent = "";
+      document.getElementById("restartBtn").style.display = "none";
+      update();
+    }
+
+    update();
+  </script>
+</body>
+</html>
