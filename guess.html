@@ -1,0 +1,36 @@
+<html>
+<p id="emojiQuestion">🎬🐯🦁</p>
+
+<input type="text" id="emojiAnswer" placeholder="Enter your guess">
+<button onclick="checkEmoji()">Submit</button>
+<p id="emojiResult" style="margin-top: 10px; font-weight: bold;"></p>
+
+<script>
+  const quiz = [
+    { emoji: "🎬🐯🦁", answer: "life of pi" },
+    { emoji: "❄️⛄👭", answer: "frozen" },
+    { emoji: "🧙‍♂️⚡🧹", answer: "harry potter" },
+    { emoji: "🚢🧊💔", answer: "titanic" },
+    { emoji: "🦁👑", answer: "lion king" }
+  ];
+
+  let current = 0;
+
+  function checkEmoji() {
+    const userAnswer = document.getElementById("emojiAnswer").value.toLowerCase().trim();
+    const result = document.getElementById("emojiResult");
+
+    if (userAnswer === quiz[current].answer) {
+      result.textContent = "✅ Correct!";
+      current = (current + 1) % quiz.length;
+      setTimeout(() => {
+        document.getElementById("emojiQuestion").textContent = quiz[current].emoji;
+        document.getElementById("emojiAnswer").value = "";
+        result.textContent = "";
+      }, 1000);
+    } else {
+      result.textContent = "❌ Try again!";
+    }
+  }
+</script>
+</html>
