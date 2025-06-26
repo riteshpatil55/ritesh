@@ -79,101 +79,23 @@ button {
     <!-- Projects Section -->
 <h2>Projects</h2>
 <h2> 1.🎮 Guess the Number Game</h2>
-<p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
-
-<input type="number" id="guessInput" placeholder="Enter your guess">
-<button onclick="checkGuess()">Submit</button>
-
-<p id="message"></p>
-
-<script>
-  let secretNumber = Math.floor(Math.random() * 100) + 1;
-  let attempts = 0;
-
-  function checkGuess() {
-    const guess = parseInt(document.getElementById('guessInput').value);
-    const message = document.getElementById('message');
-    attempts++;
-
-    if (isNaN(guess)) {
-      message.textContent = "⛔ Please enter a number!";
-    } else if (guess < 1 || guess > 100) {
-      message.textContent = "❗ Guess must be between 1 and 100.";
-    } else if (guess === secretNumber) {
-      message.innerHTML = `✅ You got it in ${attempts} tries! The number was ${secretNumber}.<br>Reload the page to play again.`;
-    } else if (guess < secretNumber) {
-      message.textContent = "📉 Too low! Try again.";
-    } else {
-      message.textContent = "📈 Too high! Try again.";
-    }
-  }
-</script>
-<h2>2.✊ Rock Paper Scissors Game</h2>
-<p>Choose your move:</p>
-
-<button onclick="play('rock')">🪨 Rock</button>
-<button onclick="play('paper')">📄 Paper</button>
-<button onclick="play('scissors')">✂️ Scissors</button>
-
-<p id="rpsResult" style="font-weight: bold; margin-top: 15px;"></p>
-
-<script>
-  function play(userChoice) {
-    const choices = ['rock', 'paper', 'scissors'];
-    const compChoice = choices[Math.floor(Math.random() * 3)];
-
-    let result = '';
-
-    if (userChoice === compChoice) {
-      result = "🤝 It's a draw!";
-    } else if (
-      (userChoice === 'rock' && compChoice === 'scissors') ||
-      (userChoice === 'paper' && compChoice === 'rock') ||
-      (userChoice === 'scissors' && compChoice === 'paper')
-    ) {
-      result = `🎉 You win! Computer chose ${compChoice}.`;
-    } else {
-      result = `😞 You lose! Computer chose ${compChoice}.`;
-    }
-
-    document.getElementById('rpsResult').textContent = result;
-  }
-</script>
+<a href="ssp.html">
+  <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
+    🎮 Play Guess the Number Game
+  </button>
+</a>
+<h2>2.🪨📄✂️Stone Paper Scissors</h2>
+<a href="sps.html">
+  <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
+    🎮 Play  Stone Paper Scissors
+  </button>
+</a>
 <h2>3.🕵️ Mystery Emoji Quiz</h2>
-<p id="emojiQuestion">🎬🐯🦁</p>
-
-<input type="text" id="emojiAnswer" placeholder="Enter your guess">
-<button onclick="checkEmoji()">Submit</button>
-<p id="emojiResult" style="margin-top: 10px; font-weight: bold;"></p>
-
-<script>
-  const quiz = [
-    { emoji: "🎬🐯🦁", answer: "life of pi" },
-    { emoji: "❄️⛄👭", answer: "frozen" },
-    { emoji: "🧙‍♂️⚡🧹", answer: "harry potter" },
-    { emoji: "🚢🧊💔", answer: "titanic" },
-    { emoji: "🦁👑", answer: "lion king" }
-  ];
-
-  let current = 0;
-
-  function checkEmoji() {
-    const userAnswer = document.getElementById("emojiAnswer").value.toLowerCase().trim();
-    const result = document.getElementById("emojiResult");
-
-    if (userAnswer === quiz[current].answer) {
-      result.textContent = "✅ Correct!";
-      current = (current + 1) % quiz.length;
-      setTimeout(() => {
-        document.getElementById("emojiQuestion").textContent = quiz[current].emoji;
-        document.getElementById("emojiAnswer").value = "";
-        result.textContent = "";
-      }, 1000);
-    } else {
-      result.textContent = "❌ Try again!";
-    }
-  }
-</script>
+<a href="guess.html">
+  <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
+    🎮 Play Mystery Emoji Game
+  </button>
+</a>
 <h2>4.🦖Dino Game</h2>
 <a href="dino.html">
   <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
