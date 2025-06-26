@@ -79,9 +79,25 @@ button {
     <!-- Projects Section -->
 <h2>Projects</h2>
 <h2>1.Games</h2>
-<h1>Want to play Games</h1>
-<h2>Click down Here</h2>
-<button class="game-btn" onclick="location.href='game.html'"></button>
+<div style="text-align: center; margin-top: 40px;">
+  <button style="
+    background-color: #0984e3;
+    color: white;
+    font-size: 24px;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(0, 206, 201, 0.6);
+  " 
+  onmouseover="this.style.backgroundColor='#00cec9'; this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px rgba(0, 206, 201, 0.9)'"
+  onmouseout="this.style.backgroundColor='#0984e3'; this.style.transform='scale(1)'; this.style.boxShadow='0 0 15px rgba(0, 206, 201, 0.6)'"
+  onclick="location.href='games.html'">
+    🎮 Want to Play Games?
+  </button>
+</div>
+
 
 
 <p>More projects coming soon — stay tuned!</p>
