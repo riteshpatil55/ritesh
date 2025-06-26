@@ -39,6 +39,36 @@ button {
 <body>
     <h1>Welcome to Ritesh Patil's Web Page</h1>
     <style>
+  #gameCanvas {
+    display: block;
+    margin: 30px auto;
+    border: 3px solid #222;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 28px;
+    color: #2c3e50;
+  }
+
+  p {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+  }
+
+
+  input, button {
+    padding: 8px 15px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+
+
   body { background: #EFEFEF; color: #333; padding: 20px; max-width: 600px; margin: auto; }
   h1 { color: #00509E; }
   button { cursor: pointer; background: #00509E; color: #fff; border: none; border-radius: 5px; }
@@ -109,6 +139,109 @@ button {
     document.getElementById('rpsResult').textContent = result;
   }
 </script>
+<h2>3.🕵️ Mystery Emoji Quiz</h2>
+<p id="emojiQuestion">🎬🐯🦁</p>
+
+<input type="text" id="emojiAnswer" placeholder="Enter your guess">
+<button onclick="checkEmoji()">Submit</button>
+<p id="emojiResult" style="margin-top: 10px; font-weight: bold;"></p>
+
+<script>
+  const quiz = [
+    { emoji: "🎬🐯🦁", answer: "life of pi" },
+    { emoji: "❄️⛄👭", answer: "frozen" },
+    { emoji: "🧙‍♂️⚡🧹", answer: "harry potter" },
+    { emoji: "🚢🧊💔", answer: "titanic" },
+    { emoji: "🦁👑", answer: "lion king" }
+  ];
+
+  let current = 0;
+
+  function checkEmoji() {
+    const userAnswer = document.getElementById("emojiAnswer").value.toLowerCase().trim();
+    const result = document.getElementById("emojiResult");
+
+    if (userAnswer === quiz[current].answer) {
+      result.textContent = "✅ Correct!";
+      current = (current + 1) % quiz.length;
+      setTimeout(() => {
+        document.getElementById("emojiQuestion").textContent = quiz[current].emoji;
+        document.getElementById("emojiAnswer").value = "";
+        result.textContent = "";
+      }, 1000);
+    } else {
+      result.textContent = "❌ Try again!";
+    }
+  }
+</script>
+<h2>4.🦖 Dino Runner Game</h2>
+<canvas id="gameCanvas" width="600" height="200"></canvas>
+<p>Press <strong>Space</strong> to jump</p>
+
+<script>
+  const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
+
+  let dino = { x: 50, y: 150, width: 40, height: 40, vy: 0, gravity: 1.5, jump: -20 };
+  let cactus = { x: 600, width: 20, height: 40 };
+  let isJumping = false;
+  let gameOver = false;
+
+  function drawDino() {
+    ctx.fillStyle = "green";
+    ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+  }
+
+  function drawCactus() {
+    ctx.fillStyle = "brown";
+    ctx.fillRect(cactus.x, 160, cactus.width, cactus.height);
+  }
+
+  function update() {
+    if (gameOver) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Dino physics
+    dino.y += dino.vy;
+    dino.vy += dino.gravity;
+
+    if (dino.y > 150) {
+      dino.y = 150;
+      dino.vy = 0;
+      isJumping = false;
+    }
+
+    // Move cactus
+    cactus.x -= 6;
+    if (cactus.x < -cactus.width) cactus.x = 600 + Math.random() * 100;
+
+    // Check collision
+    if (
+      dino.x < cactus.x + cactus.width &&
+      dino.x + dino.width > cactus.x &&
+      dino.y + dino.height > 160
+    ) {
+      gameOver = true;
+      alert("💥 Game Over! Refresh to play again.");
+    }
+
+    drawDino();
+    drawCactus();
+
+    requestAnimationFrame(update);
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.code === "Space" && !isJumping && !gameOver) {
+      dino.vy = dino.jump;
+      isJumping = true;
+    }
+  });
+
+  update();
+</script>
+
 
 
 <p>More projects coming soon — stay tuned!</p>
