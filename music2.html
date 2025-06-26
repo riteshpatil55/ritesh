@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ritesh's Ultimate Music Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --primary: #00cec9;
+    }
+    body.light {
+      --bg: #fff;
+      --text: #000;
+      --primary: #6c5ce7;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+      transition: all 0.3s ease;
+    }
+    h1 {
+      font-size: 40px;
+      color: var(--primary);
+    }
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .title {
+      font-size: 24px;
+      margin-top: 40px;
+      color: var(--primary);
+    }
+    audio {
+      margin: 15px;
+      width: 90%;
+      max-width: 400px;
+    }
+    input[type="file"] {
+      margin: 20px;
+    }
+    .download-section {
+      margin: 40px 0;
+    }
+    .contact {
+      margin-top: 60px;
+    }
+    input, textarea {
+      width: 90%;
+      max-width: 400px;
+      margin: 10px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎧 Ritesh's Ultimate Music Room</h1>
+
+  <!-- 🎨 Theme Toggle -->
+  <button class="btn" onclick="toggleTheme()">🌗 Toggle Theme</button>
+
+  <!-- 🔊 Music Playlist -->
+  <div class="title">🔥 Your Playlist</div>
+  <audio controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+  <audio controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+
+  <!-- 📁 Upload MP3 -->
+  <div class="title">📁 Add Your Own Music</div>
+  <input type="file" id="fileInput" accept="audio/mp3" />
+  <div id="customPlayer"></div>
+
+  <!-- 📥 Download MP3 -->
+  <div class="title">⬇️ Download Music</div>
+  <div class="download-section">
+    <a class="btn" href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" download>Download Track 1</a>
+    <a class="btn" href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" download>Download Track 2</a>
+  </div>
+
+  <!-- 📬 Contact Form -->
+  <div class="title contact">📬 Contact Ritesh Patil</div>
+  <form action="https://formspree.io/f/xnqeovlz" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required /><br />
+    <input type="email" name="email" placeholder="Your Email" required /><br />
+    <textarea name="message" rows="4" placeholder="Your Message..." required></textarea><br />
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+    }
+
+    document.getElementById("fileInput").addEventListener("change", function (e) {
+      const file = e.target.files[0];
+      if (file && file.type === "audio/mp3") {
+        const url = URL.createObjectURL(file);
+        const audio = document.createElement("audio");
+        audio.controls = true;
+        audio.src = url;
+        const container = document.getElementById("customPlayer");
+        container.innerHTML = "";
+        container.appendChild(audio);
+      } else {
+        alert("Please select a valid MP3 file.");
+      }
+    });
+  </script>
+
+</body>
+</html>
