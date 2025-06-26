@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dino Runner Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+    body {
+      margin: 0;
+      background-color: #f8fcff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    canvas {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      border: 3px solid #2c3e50;
+      background-color: #ffffff;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      margin: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #27ae60;
+      color: white;
+      cursor: pointer;
+    }
+
+    #scoreBoard {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🦖 Dino Runner Game</h1>
+  <p>Tap screen or press <strong>Space</strong> to jump</p>
+  <canvas id="gameCanvas" width="600" height="200"></canvas>
+
+  <button id="mobileJumpBtn">⬆️ Jump</button>
+  <button id="restartBtn" style="display:none;">🔁 Restart</button>
+  <p id="scoreBoard">Score: 0</p>
+
+  <audio id="jumpSound" src="https://freesound.org/data/previews/234/234515_4019026-lq.mp3"></audio>
+  <audio id="gameOverSound" src="https://freesound.org/data/previews/524/524774_11231842-lq.mp3"></audio>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const dinoImg = new Image();
+    dinoImg.src = "https://i.ibb.co/cc8rVKq/color-dino.png";
+
+    const cloudImg = new Image();
+    cloudImg.src = "https://i.ibb.co/zmnKbKT/cloud.png";
+
+    const jumpSound = document.getElementById("jumpSound");
+    const gameOverSound = document.getElementById("gameOverSound");
+
+    let dino = { x: 50, y: 150, width: 50, height: 50, vy: 0, gravity: 1.5, jump: -20 };
+    let cactus = { x: 600, width: 20, height: 40 };
+    let cloud = { x: 600, y: 20, width: 60, height: 30 };
+    let isJumping = false;
+    let gameOver = false;
+    let score = 0;
+
+    function drawDino() {
+      ctx.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
+    }
+
+    function drawCactus() {
+      ctx.fillStyle = "#8e44ad";
+      ctx.fillRect(cactus.x, 160, cactus.width, cactus.height);
+    }
+
+    function drawCloud() {
+      ctx.drawImage(cloudImg, cloud.x, cloud.y, cloud.width, cloud.height);
+    }
+
+    function drawScore() {
+      document.getElementById("scoreBoard").textContent = `Score: ${score}`;
+    }
+
+    function update() {
+      if (gameOver) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      dino.y += dino.vy;
+      dino.vy += dino.gravity;
+
+      if (dino.y > 150) {
+        dino.y = 150;
+        dino.vy = 0;
+        isJumping = false;
+      }
+
+      cactus.x -= 6;
+      if (cactus.x < -20) {
+        cactus.x = 600 + Math.random() * 100;
+        score++;
+      }
+
+      cloud.x -= 2;
+      if (cloud.x < -60) {
+        cloud.x = 600 + Math.random() * 200;
+        cloud.y = 10 + Math.random() * 30;
+      }
+
+      if (
+        dino.x < cactus.x + cactus.width &&
+        dino.x + dino.width > cactus.x &&
+        dino.y + dino.height > 160
+      ) {
+        gameOver = true;
+        gameOverSound.currentTime = 0;
+        gameOverSound.play();
+        document.getElementById("restartBtn").style.display = "inline-block";
+      }
+
+      drawCloud();
+      drawDino();
+      drawCactus();
+      drawScore();
+
+      requestAnimationFrame(update);
+    }
+
+    function jump() {
+      if (!isJumping && !gameOver) {
+        dino.vy = dino.jump;
+        isJumping = true;
+        jumpSound.currentTime = 0;
+        jumpSound.play().catch(() => {});
+      }
+    }
+
+    function restartGame() {
+      dino.y = 150;
+      dino.vy = 0;
+      cactus.x = 600;
+      cloud.x = 600;
+      score = 0;
+      gameOver = false;
+      isJumping = false;
+      document.getElementById("restartBtn").style.display = "none";
+      update();
+    }
+
+    document.addEventListener("keydown", function(e) {
+      if (e.code === "Space") jump();
+    });
+
+    canvas.addEventListener("touchstart", jump);
+    document.getElementById("mobileJumpBtn").addEventListener("click", jump);
+    document.getElementById("restartBtn").addEventListener("click", restartGame);
+
+    update();
+  </script>
+
+</body>
+</html>
