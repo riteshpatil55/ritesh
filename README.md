@@ -93,7 +93,7 @@ button {
   " 
   onmouseover="this.style.backgroundColor='#00cec9'; this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px rgba(0, 206, 201, 0.9)'"
   onmouseout="this.style.backgroundColor='#0984e3'; this.style.transform='scale(1)'; this.style.boxShadow='0 0 15px rgba(0, 206, 201, 0.6)'"
-  onclick="location.href='games.html'">
+  onclick="location.href='game.html'">
     🎮 Want to Play Games?
   </button>
 </div>
