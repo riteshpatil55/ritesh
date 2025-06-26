@@ -3,6 +3,17 @@
 <head>
     <title>Ritesh Patil - Web Developer</title>
     <style>
+        input, button {
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+#message {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #00509E;
+}
+
         body {
             background-color: #f0f8ff;
             font-family: Arial, sans-serif;
@@ -53,6 +64,37 @@
 
 <!-- Projects Section -->
 <h2>Projects</h2>
+<h2>🎮 Guess the Number Game</h2>
+<p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+
+<input type="number" id="guessInput" placeholder="Enter your guess">
+<button onclick="checkGuess()">Submit</button>
+
+<p id="message"></p>
+
+<script>
+  let secretNumber = Math.floor(Math.random() * 100) + 1;
+  let attempts = 0;
+
+  function checkGuess() {
+    const guess = parseInt(document.getElementById('guessInput').value);
+    const message = document.getElementById('message');
+    attempts++;
+
+    if (isNaN(guess)) {
+      message.textContent = "⛔ Please enter a number!";
+    } else if (guess < 1 || guess > 100) {
+      message.textContent = "❗ Guess must be between 1 and 100.";
+    } else if (guess === secretNumber) {
+      message.innerHTML = `✅ You got it in ${attempts} tries! The number was ${secretNumber}.<br>Reload the page to play again.`;
+    } else if (guess < secretNumber) {
+      message.textContent = "📉 Too low! Try again.";
+    } else {
+      message.textContent = "📈 Too high! Try again.";
+    }
+  }
+</script>
+
 <p>More projects coming soon — stay tuned!</p>
 
 <a href="#images">🖼️ View Images</a>
