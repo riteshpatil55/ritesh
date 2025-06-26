@@ -211,6 +211,44 @@ button {
 
 
   <h2>4.🦖 Dino Runner Game</h2>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dino Runner Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #ecf0f1;
+    }
+    #gameCanvas {
+      display: block;
+      margin: 30px auto;
+      border: 3px solid #222;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background: #27ae60;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    p {
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🦖 Dino Runner Game</h2>
   <canvas id="gameCanvas" width="600" height="200"></canvas>
   <button id="restartBtn" onclick="restartGame()" style="display:none;">🔁 Restart Game</button>
   <p id="emojiResult"></p>
@@ -332,7 +370,8 @@ button {
 
     update();
   </script>
-
+</body>
+</html>
 
 
 
