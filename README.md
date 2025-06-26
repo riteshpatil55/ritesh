@@ -109,7 +109,7 @@ button {
   </button>
 </a>
 
-<h2>5.🐍 Play Snake Game</h2>
+<h2>6.🐍 Play Snake Game</h2>
 <a href="snake.html">
   <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
     🎮 Play Snake Game
