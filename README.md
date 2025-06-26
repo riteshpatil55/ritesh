@@ -113,7 +113,7 @@ button {
   "
   onmouseover="this.style.backgroundColor='#a29bfe'; this.style.transform='scale(1.05)'"
   onmouseout="this.style.backgroundColor='#6c5ce7'; this.style.transform='scale(1)'"
-  onclick="location.href='music.html'">
+  onclick="location.href='music1.html'">
     🎵 Want to Listen to Music?
   </button>
 </div>
