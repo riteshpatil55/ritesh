@@ -103,17 +103,13 @@ button {
     <h2>Connect With Me</h2>
     <a href="mailto:riteshkp009@gmail.com">Email Me</a>
     <h2>Connect With My Buddie</h2>
-    <a href="mailto:rmpatil484@gmail.com">Email Me</a>
+    <a href="mailto:rmpatil484@gmail.com">Email Me</a><br>
+
+<h1>My Gallery</h1>
+<a href="images.html">
+    🖼️ View Images</a>
 
 
-<a href="images.html">🖼️ View Images</a>
-
-<h2 id="images">My Gallery</h2>
-<div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="image1.jpg" alt="Image 1" width="200">
-  <img src="image2.jpg" alt="Image 2" width="200">
-  <img src="img3.jpg" alt="Image 3" width="200">
-</div>
 
 
 </body>
