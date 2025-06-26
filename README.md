@@ -78,45 +78,10 @@ button {
     <p>I am learning Web Development with Bunty Bro 🚀</p>
     <!-- Projects Section -->
 <h2>Projects</h2>
-<h2> 1.🎮 Guess the Number Game</h2>
-<a href="ssp1.html">
-  <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    🎮 Play Guess the Number Game
-  </button>
-</a>
-<h2>2.🪨📄✂️Stone Paper Scissors</h2>
-<a href="sps.html">
-  <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    🎮 Play  Stone Paper Scissors
-  </button>
-</a>
-<h2>3.🕵️ Mystery Emoji Quiz</h2>
-<a href="guess.html">
-  <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    🎮 Play Mystery Emoji Game
-  </button>
-</a>
-<h2>4.🦖Dino Game</h2>
-<a href="dino1.html">
-  <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    🎮 Play Dino Game
-  </button>
-</a>
-<h2>5.🐤 Play Flappy Bird Game</h2>
-<a href="flappy.html">
-  <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    🎮 Play Flappy Bird Game
-  </button>
-</a>
-
-<h2>6.🐍 Play Snake Game</h2>
-<a href="snake.html">
-  <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
-    🎮 Play Snake Game
-  </button>
-</a>
-
-
+<h2>1.Games</h2>
+<h1>Want to play Games</h1>
+<h2>Click down Here</h2>
+<button class="game-btn" onclick="location.href='game.html'"></button>
 
 
 <p>More projects coming soon — stay tuned!</p>
