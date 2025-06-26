@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ritesh's Music Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      background: linear-gradient(to right, #000000, #434343);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #00cec9;
+    }
+
+    .controls {
+      margin: 30px auto;
+    }
+
+    .btn {
+      background-color: #6c5ce7;
+      color: white;
+      font-size: 18px;
+      padding: 12px 24px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00cec9;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #00cec9;
+      box-shadow: 0 0 20px #81ecec;
+    }
+
+    .playlist {
+      margin-top: 40px;
+    }
+
+    audio {
+      margin: 15px;
+      width: 80%;
+      max-width: 500px;
+    }
+
+    .title {
+      font-size: 22px;
+      margin-top: 30px;
+      color: #ffeaa7;
+    }
+
+    .category {
+      margin-top: 50px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>🎧 Ritesh's Music Room</h1>
+  <p>🎶 Play, Pause, Vibe – Custom Sound Room</p>
+
+  <div class="controls">
+    <button class="btn" onclick="playMusic()">▶️ Play All</button>
+    <button class="btn" onclick="pauseMusic()">⏸️ Pause All</button>
+  </div>
+
+  <!-- 🎵 Sensational -->
+  <div class="category">
+    <div class="title">🔥 Sensational</div>
+    <audio id="audio1" controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+  </div>
+
+  <!-- 🔊 Bass Boosted -->
+  <div class="category">
+    <div class="title">🔊 Bass Boosted</div>
+    <audio id="audio2" controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+  </div>
+
+  <!-- 💖 Romantic -->
+  <div class="category">
+    <div class="title">💖 Romantic Vibes</div>
+    <audio id="audio3" controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+  </div>
+
+  <!-- 💃 Party Vibes -->
+  <div class="category">
+    <div class="title">💃 Party Mode</div>
+    <audio id="audio4" controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"></audio>
+  </div>
+
+  <script>
+    const audios = [
+      document.getElementById('audio1'),
+      document.getElementById('audio2'),
+      document.getElementById('audio3'),
+      document.getElementById('audio4')
+    ];
+
+    function playMusic() {
+      audios.forEach(audio => {
+        audio.play();
+      });
+    }
+
+    function pauseMusic() {
+      audios.forEach(audio => {
+        audio.pause();
+      });
+    }
+  </script>
+
+</body>
+</html>
