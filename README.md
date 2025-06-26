@@ -97,7 +97,7 @@ button {
   </button>
 </a>
 <h2>4.🦖Dino Game</h2>
-<a href="dino.html">
+<a href="dino1.html">
   <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
     🎮 Play Dino Game
   </button>
