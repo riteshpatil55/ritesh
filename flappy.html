@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flappy Bird Real</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #70c5ce;
+    }
+    canvas {
+      display: block;
+      margin: 0 auto;
+      background: #70c5ce;
+    }
+    button {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #e67e22;
+      color: white;
+      cursor: pointer;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="400" height="512"></canvas>
+<button id="restartBtn" style="display: none;">🔁 Restart</button>
+
+<script>
+  const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
+
+  // Load images
+  const bg = new Image();
+  bg.src = "https://i.ibb.co/NsmhX7d/bg.png";
+  const fg = new Image();
+  fg.src = "https://i.ibb.co/yYr6cL2/fg.png";
+  const bird = new Image();
+  bird.src = "https://i.ibb.co/B3qvYfs/bird.png";
+  const pipeNorth = new Image();
+  pipeNorth.src = "https://i.ibb.co/fC6NsGn/pipeNorth.png";
+  const pipeSouth = new Image();
+  pipeSouth.src = "https://i.ibb.co/ZXLKzRj/pipeSouth.png";
+
+  // Load sounds
+  const fly = new Audio("https://freesound.org/data/previews/234/234515_4019026-lq.mp3");
+  const scoreSound = new Audio("https://freesound.org/data/previews/337/337049_3231594-lq.mp3");
+  const hit = new Audio("https://freesound.org/data/previews/152/152733_262327-lq.mp3");
+
+  const gap = 100;
+  let score = 0;
+  let bX = 50;
+  let bY = 150;
+  let gravity = 1.5;
+  let velocity = 0;
+  let pipes = [{ x: canvas.width, y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height }];
+
+  let gameOver = false;
+
+  function draw() {
+    ctx.drawImage(bg, 0, 0);
+
+    for (let i = 0; i < pipes.length; i++) {
+      let p = pipes[i];
+      ctx.drawImage(pipeNorth, p.x, p.y);
+      ctx.drawImage(pipeSouth, p.x, p.y + pipeNorth.height + gap);
+
+      p.x -= 2;
+
+      // New pipe
+      if (p.x === 200) {
+        pipes.push({
+          x: canvas.width,
+          y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height
+        });
+      }
+
+      // Collision
+      if (
+        bX + bird.width >= p.x &&
+        bX <= p.x + pipeNorth.width &&
+        (bY <= p.y + pipeNorth.height || bY + bird.height >= p.y + pipeNorth.height + gap)
+      ) {
+        endGame();
+        return;
+      }
+
+      // Scoring
+      if (p.x + pipeNorth.width === bX) {
+        score++;
+        scoreSound.play();
+      }
+    }
+
+    ctx.drawImage(fg, 0, canvas.height - fg.height);
+    ctx.drawImage(bird, bX, bY);
+
+    velocity += gravity;
+    bY += velocity;
+
+    if (bY + bird.height >= canvas.height - fg.height) {
+      endGame();
+      return;
+    }
+
+    ctx.fillStyle = "#fff";
+    ctx.font = "20px Arial";
+    ctx.fillText("Score: " + score, 10, canvas.height - 20);
+
+    if (!gameOver) requestAnimationFrame(draw);
+  }
+
+  function flap() {
+    if (!gameOver) {
+      velocity = -12;
+      fly.play().catch(() => {});
+    }
+  }
+
+  function endGame() {
+    hit.play();
+    gameOver = true;
+    document.getElementById("restartBtn").style.display = "block";
+  }
+
+  function restart() {
+    bY = 150;
+    velocity = 0;
+    pipes = [{ x: canvas.width, y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height }];
+    score = 0;
+    gameOver = false;
+    document.getElementById("restartBtn").style.display = "none";
+    draw();
+  }
+
+  document.addEventListener("keydown", e => {
+    if (e.code === "Space") flap();
+  });
+  canvas.addEventListener("touchstart", flap);
+  document.getElementById("restartBtn").addEventListener("click", restart);
+
+  draw();
+</script>
+</body>
+</html>
