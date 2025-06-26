@@ -37,32 +37,7 @@
 </style>
 
     <p>I am learning Web Development with Bunty Bro 🚀</p>
-
-    <h2>My Hobbies</h2>
-    <ul>
-        <li>Cricket 🏏</li>
-        <li>Reading thrilling stories 📖</li>
-        <li>Exploring tech 💻</li>
-    </ul>
-
-    <h2>My Photo</h2>
-    <img src="ritesh.jpg" width="200" alt="My Photo">
-    <h2>My Buddie</h2>
-    <img src="rohit.jpg" width="200" alt="My Buddie">
-    <h2>Connect With Me</h2>
-    <a href="mailto:riteshkp009@gmail.com">Email Me</a>
-     <h2>Connect With My Buddie</h2>
-    <a href="mailto:rmpatil484@gmail.com">Email Me</a>
-    <h2>My Resume</h2>
-<a href="Ritesh_Resume.pdf" download>
-  <button style="padding:10px 20px; font-size:16px;">📄 Download My Resume</button>
-</a>
-<h2>My Buddie Resume</h2>
-<a href="RohitPatil.pdf" download>
-    <button style="padding:10px 20px; front-size:16px;">📄 Download My Resume</button>
-    </a>
-
-<!-- Projects Section -->
+    <!-- Projects Section -->
 <h2>Projects</h2>
 <h2>🎮 Guess the Number Game</h2>
 <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
@@ -96,6 +71,20 @@
 </script>
 
 <p>More projects coming soon — stay tuned!</p>
+    <h2>Connect With Me</h2>
+    <a href="mailto:riteshkp009@gmail.com">Email Me</a>
+     <h2>Connect With My Buddie</h2>
+    <a href="mailto:rmpatil484@gmail.com">Email Me</a>
+    <h2>My Resume</h2>
+<a href="Ritesh_Resume.pdf" download>
+  <button style="padding:10px 20px; font-size:16px;">📄 Download My Resume</button>
+</a>
+<h2>My Buddie Resume</h2>
+<a href="RohitPatil.pdf" download>
+    <button style="padding:10px 20px; front-size:16px;">📄 Download My Resume</button>
+    </a>
+
+
 
 <a href="#images">🖼️ View Images</a>
 
