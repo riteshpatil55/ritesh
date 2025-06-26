@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ritesh's Game Zone</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+      color: #00cec9;
+      font-size: 40px;
+      animation: popUp 1s ease-in-out;
+    }
+
+    .game-btn {
+      background-color: #0984e3;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      margin: 15px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      animation: slideUp 1s ease-in-out;
+    }
+
+    .game-btn:hover {
+      background-color: #00cec9;
+      box-shadow: 0 0 20px #00cec9, 0 0 40px #00cec9;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(60px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popUp {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @media screen and (max-width: 600px) {
+      .game-btn {
+        width: 90%;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎮 Welcome to Ritesh's Game Zone</h1>
+  <p>Choose a game below to start playing:</p>
+
+  <button class="game-btn" onclick="location.href='dino1.html'">🦖 Dino Game</button><br>
+  <button class="game-btn" onclick="location.href='flappy.html'">🐤 Flappy Bird</button><br>
+  <button class="game-btn" onclick="location.href='snake.html'">🐍 Snake Game</button><br>
+  <button class="game-btn" onclick="location.href='sps.html'">🪨📄✂️ Rock Paper Scissors</button><br>
+  <button class="game-btn" onclick="location.href='ssp1.html'">🎮 Guess the Number Game</button><br>
+  <button class="game-btn" onclick="location.href='guess.html'">🕵️ Mystery Emoji Quiz</button><br>
+</body>
+</html>
