@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>Ritesh Patil - Web Developer</title>
@@ -75,7 +74,7 @@ button {
   img { border-radius: 50%; }
 </style>
 
-    <p>I am learning Web Development with Bunty Bro 🚀</p>
+    <p>🚀</p>
     <!-- Projects Section -->
 <h2>Projects</h2>
 <h2>1.Games</h2>
@@ -103,20 +102,11 @@ button {
 <p>More projects coming soon — stay tuned!</p>
     <h2>Connect With Me</h2>
     <a href="mailto:riteshkp009@gmail.com">Email Me</a>
-     <h2>Connect With My Buddie</h2>
+    <h2>Connect With My Buddie</h2>
     <a href="mailto:rmpatil484@gmail.com">Email Me</a>
-    <h2>My Resume</h2>
-<a href="Ritesh_Resume.pdf" download>
-  <button style="padding:10px 20px; font-size:16px;">📄 Download My Resume</button>
-</a>
-<h2>My Buddie Resume</h2>
-<a href="RohitPatil.pdf" download>
-    <button style="padding:10px 20px; front-size:16px;">📄 Download My Resume</button>
-    </a>
 
 
-
-<a href="#images">🖼️ View Images</a>
+<a href="images.html">🖼️ View Images</a>
 
 <h2 id="images">My Gallery</h2>
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
