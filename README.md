@@ -79,7 +79,7 @@ button {
     <!-- Projects Section -->
 <h2>Projects</h2>
 <h2> 1.🎮 Guess the Number Game</h2>
-<a href="ssp.html">
+<a href="ssp1.html">
   <button style="padding: 12px 25px; font-size: 16px; margin: 20px auto; background-color: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer;">
     🎮 Play Guess the Number Game
   </button>
