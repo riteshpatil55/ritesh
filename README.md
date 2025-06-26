@@ -13,6 +13,15 @@
   font-weight: bold;
   color: #00509E;
 }
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
 
         body {
             background-color: #f0f8ff;
@@ -39,7 +48,7 @@
     <p>I am learning Web Development with Bunty Bro 🚀</p>
     <!-- Projects Section -->
 <h2>Projects</h2>
-<h2>🎮 Guess the Number Game</h2>
+<h2> 1.🎮 Guess the Number Game</h2>
 <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
 
 <input type="number" id="guessInput" placeholder="Enter your guess">
@@ -69,6 +78,38 @@
     }
   }
 </script>
+<h2>2.✊ Rock Paper Scissors Game</h2>
+<p>Choose your move:</p>
+
+<button onclick="play('rock')">🪨 Rock</button>
+<button onclick="play('paper')">📄 Paper</button>
+<button onclick="play('scissors')">✂️ Scissors</button>
+
+<p id="rpsResult" style="font-weight: bold; margin-top: 15px;"></p>
+
+<script>
+  function play(userChoice) {
+    const choices = ['rock', 'paper', 'scissors'];
+    const compChoice = choices[Math.floor(Math.random() * 3)];
+
+    let result = '';
+
+    if (userChoice === compChoice) {
+      result = "🤝 It's a draw!";
+    } else if (
+      (userChoice === 'rock' && compChoice === 'scissors') ||
+      (userChoice === 'paper' && compChoice === 'rock') ||
+      (userChoice === 'scissors' && compChoice === 'paper')
+    ) {
+      result = `🎉 You win! Computer chose ${compChoice}.`;
+    } else {
+      result = `😞 You lose! Computer chose ${compChoice}.`;
+    }
+
+    document.getElementById('rpsResult').textContent = result;
+  }
+</script>
+
 
 <p>More projects coming soon — stay tuned!</p>
     <h2>Connect With Me</h2>
