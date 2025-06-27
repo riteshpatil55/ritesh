@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<title>Resume Creator - By Ritesh</title>
+<meta name="description" content="Create professional resumes online with Ritesh's free resume builder. Choose from beautiful templates, fill details, and download as PDF.">
+<meta name="keywords" content="resume creator, online resume, resume builder, ritesh, pdf resume, create resume, github resume maker">
+<meta name="author" content="Ritesh Patil">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Creator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f3f9ff;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    h1 {
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      gap: 30px;
+    }
+    form, .resume-preview {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .optional {
+      opacity: 0.8;
+    }
+    .preview-box {
+      border: 2px dashed #aaa;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #resumePhoto {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    #darkToggleLabel {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px auto;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    .dark-mode input,
+    .dark-mode textarea,
+    .dark-mode select {
+      background: #222;
+      color: #f0f0f0;
+      border: 1px solid #555;
+    }
+    .dark-mode form,
+    .dark-mode .resume-preview {
+      background: #1e1e1e;
+    }
+
+    /* Template Styles */
+    .template-modern h3 {
+      color: #007bff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .template-classic h3 {
+      color: #000;
+      font-family: Georgia, serif;
+    }
+    .template-minimal h3 {
+      color: #333;
+      font-weight: normal;
+    }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎓 Resume Creator</h1>
+  <label id="darkToggleLabel">
+    <input type="checkbox" id="darkToggle"> 🌙 Enable Dark Mode
+  </label>
+  <div class="container">
+    <form id="resumeForm">
+      <label>Full Name *</label>
+      <input type="text" id="name" required />
+
+      <label>Email *</label>
+      <input type="email" id="email" required />
+
+      <label>Phone *</label>
+      <input type="text" id="phone" required />
+
+      <label>Address *</label>
+      <input type="text" id="address" required />
+
+      <label>Education *</label>
+      <textarea id="education" required></textarea>
+
+      <label>Skills *</label>
+      <textarea id="skills" required></textarea>
+
+      <label>Template Style</label>
+      <select id="template">
+        <option value="modern">Modern</option>
+        <option value="classic">Classic</option>
+        <option value="minimal">Minimal</option>
+      </select>
+
+      <label class="optional">Profile Photo</label>
+      <input type="file" id="photoUpload" accept="image/*">
+
+      <label class="optional">Projects / Website</label>
+      <textarea id="projects"></textarea>
+
+      <label class="optional">Experience</label>
+      <textarea id="experience"></textarea>
+
+      <label class="optional">Achievements</label>
+      <textarea id="achievements"></textarea>
+
+      <label class="optional">Languages</label>
+      <input type="text" id="languages" />
+
+      <button type="button" onclick="generateResume()">Generate Resume</button>
+      <button type="button" onclick="downloadPDF()">Download as PDF</button>
+    </form>
+
+    <div class="resume-preview">
+      <h2>📄 Live Preview</h2>
+      <div class="preview-box" id="preview"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("darkToggle").addEventListener("change", function () {
+      document.body.classList.toggle("dark-mode");
+    });
+
+    function generateResume() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const address = document.getElementById("address").value;
+      const education = document.getElementById("education").value;
+      const skills = document.getElementById("skills").value;
+      const template = document.getElementById("template").value;
+      const projects = document.getElementById("projects").value;
+      const experience = document.getElementById("experience").value;
+      const achievements = document.getElementById("achievements").value;
+      const languages = document.getElementById("languages").value;
+
+      const photoUpload = document.getElementById("photoUpload").files[0];
+      const preview = document.getElementById("preview");
+
+      const reader = new FileReader();
+
+      reader.onload = function () {
+        const photoHTML = photoUpload ? `<img src="${reader.result}" id="resumePhoto">` : "";
+        preview.innerHTML = `
+          <div class="template-${template}">
+            ${photoHTML}
+            <h3>${name}</h3>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Address:</strong> ${address}</p>
+            <h4>Education</h4>
+            <p>${education}</p>
+            <h4>Skills</h4>
+            <p>${skills}</p>
+            ${projects ? `<h4>Projects / Website</h4><p>${projects}</p>` : ""}
+            ${experience ? `<h4>Experience</h4><p>${experience}</p>` : ""}
+            ${achievements ? `<h4>Achievements</h4><p>${achievements}</p>` : ""}
+            ${languages ? `<h4>Languages</h4><p>${languages}</p>` : ""}
+          </div>
+        `;
+      };
+
+      if (photoUpload) reader.readAsDataURL(photoUpload);
+      else reader.onload();
+    }
+
+    function downloadPDF() {
+      const element = document.getElementById("preview");
+      const opt = {
+        margin: 0.5,
+        filename: 'resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
+</body>
+</html>
