@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduFlix by Ritesh & Bunty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #fff;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: linear-gradient(to right, #4e54c8, #8f94fb);
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #222;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0.5rem 1rem;
+      padding: 0.5rem 1rem;
+      background: #333;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #8f94fb;
+    }
+    .section {
+      padding: 2rem;
+    }
+    .section h2 {
+      border-left: 5px solid #8f94fb;
+      padding-left: 0.8rem;
+    }
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    iframe {
+      width: 100%;
+      border-radius: 10px;
+      height: 160px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    .controls {
+      text-align: center;
+      padding: 1rem;
+    }
+    .controls input {
+      padding: 0.5rem;
+      border-radius: 10px;
+      border: none;
+      width: 60%;
+      max-width: 400px;
+      font-size: 1rem;
+    }
+    .controls button {
+      padding: 0.5rem 1rem;
+      margin-left: 1rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background: #8f94fb;
+      color: #111;
+      font-weight: bold;
+    }
+    .light-mode {
+      background: #f1f1f1;
+      color: #000;
+    }
+    .light-mode nav, .light-mode footer {
+      background: #ddd;
+      color: #111;
+    }
+    .light-mode nav a {
+      background: #ccc;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EduFlix 🎓 by Ritesh & Bunty</h1>
+    <p>Free. Smart. No Ads. Just Learn.</p>
+  </header>
+
+  <nav>
+    <a href="#physics">Physics</a>
+    <a href="#chemistry">Chemistry</a>
+    <a href="#maths">Maths</a>
+    <a href="#coding">Coding</a>
+    <a href="#motivation">Motivation</a>
+  </nav>
+
+  <div class="controls">
+    <input type="text" id="search" placeholder="Search a topic..." oninput="filterVideos()">
+    <button onclick="toggleMode()">Toggle Theme</button>
+  </div>
+
+  <div class="section" id="physics">
+    <h2>Physics 🔬</h2>
+    <div class="videos">
+      <iframe src="https://www.youtube.com/embed/qeQdxn9WdsY" data-title="Motion Class 9" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/Po3jStA673E" data-title="Thermodynamics" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="section" id="chemistry">
+    <h2>Chemistry 🧪</h2>
+    <div class="videos">
+      <iframe src="https://www.youtube.com/embed/WFbexE1eV4M" data-title="Acids and Bases" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/cpjlZyRhNfM" data-title="Organic Chemistry" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="section" id="maths">
+    <h2>Maths 📐</h2>
+    <div class="videos">
+      <iframe src="https://www.youtube.com/embed/KgfN0wJ1U7I" data-title="Linear Equations" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/9PqDjcT_3ec" data-title="Integration Tricks" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="section" id="coding">
+    <h2>Coding 💻</h2>
+    <div class="videos">
+      <iframe src="https://www.youtube.com/embed/HTML-sN9gq8" data-title="HTML Basics" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/qz0aGYrrlhU" data-title="JavaScript Intro" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="section" id="motivation">
+    <h2>Motivation ❤️</h2>
+    <div class="videos">
+      <iframe src="https://www.youtube.com/embed/UNQhuFL6CWg" data-title="Don't Give Up" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/bWlYxWxZccY" data-title="Study Motivation" allowfullscreen></iframe>
+    </div>
+  </div>
+<div class="section" id="jee">
+  <h2>JEE Zone 🧠</h2>
+  <div class="videos">
+    <iframe src="https://www.youtube.com/embed/ytVneQUA5-c" data-title="JEE PCM Tricks" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/4iU0vDTC46Y" data-title="Time Management JEE" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="section" id="neet">
+  <h2>NEET Zone 🩺</h2>
+  <div class="videos">
+    <iframe src="https://www.youtube.com/embed/dUT8T3Udx78" data-title="NEET Biology Revision" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/XANPHDFhS-4" data-title="NEET Chemistry Quick Notes" allowfullscreen></iframe>
+  </div>
+</div>
+
+
+  <footer>
+    Built with 💙 by Ritesh & Bunty • Free forever for every student.
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    function filterVideos() {
+      const search = document.getElementById("search").value.toLowerCase();
+      const iframes = document.querySelectorAll("iframe");
+      iframes.forEach(iframe => {
+        const title = iframe.getAttribute("data-title").toLowerCase();
+        iframe.style.display = title.includes(search) ? "block" : "none";
+      });
+    }
+  </script>
+</body>
+</html>
