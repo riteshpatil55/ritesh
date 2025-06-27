@@ -1,7 +1,23 @@
 <html>
 <head>
-    <meta name="google-site-verification" content="82jLWGwTJl9WLZmU-dRqKv6higHLOnYP72ks3hw_RzI" />
+    <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ritesh Patil - Official WebZone</title>
+  <meta name="description" content="Welcome to Ritesh's personal web zone! Play games, create resumes, explore music and more — all in one place, free forever." />
+  <meta name="keywords" content="Ritesh, Bunty, resume creator, game zone, music site, GitHub website, riteshpatil, web developer" />
+  <meta name="author" content="Ritesh Patil" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (optional for social previews) -->
+  <meta property="og:title" content="Ritesh's WebZone - Games, Music & Resumes" />
+  <meta property="og:description" content="All-in-one site by Ritesh. Play games, build resumes, and vibe to music!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://riteshpatil55.github.io/" />
 </head>
+
+
     <title>Ritesh Patil - Web Developer</title>
     <style>
         input, button {
