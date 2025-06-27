@@ -1,22 +1,7 @@
 <html>
 <head>
-    <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Ritesh Patil - Official WebZone</title>
-  <meta name="description" content="Welcome to Ritesh's personal web zone! Play games, create resumes, explore music and more — all in one place, free forever." />
-  <meta name="keywords" content="Ritesh, Bunty, resume creator, game zone, music site, GitHub website, riteshpatil, web developer" />
-  <meta name="author" content="Ritesh Patil" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph (optional for social previews) -->
-  <meta property="og:title" content="Ritesh's WebZone - Games, Music & Resumes" />
-  <meta property="og:description" content="All-in-one site by Ritesh. Play games, build resumes, and vibe to music!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://riteshpatil55.github.io/" />
+    <meta name="google-site-verification" content="82jLWGwTJl9WLZmU-dRqKv6higHLOnYP72ks3hw_RzI" />
 </head>
-
     <title>Ritesh Patil - Web Developer</title>
     <style>
         input, button {
@@ -135,7 +120,24 @@ button {
   </button>
 </div>
 <h2>3.Online Resume Creator</h2>
-<a href="resume.html"><button>🎓 Create Resume</button></a>
+<div style="text-align: center; margin-top: 30px;">
+  <button style="
+    background-color: #6c5ce7;
+    color: white;
+    font-size: 22px;
+    padding: 16px 35px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(108, 92, 231, 0.7);
+  "
+  onmouseover="this.style.backgroundColor='#a29bfe'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#6c5ce7'; this.style.transform='scale(1)'"
+  onclick="location.href='resume.html'">
+    🎓Create Resume
+  </button>
+</div>
 
 
 
