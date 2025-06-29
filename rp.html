@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    .test-box {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 700px;
+      animation: fadeIn 1s ease;
+    }
+    .quote {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 2px dashed #333;
+      border-radius: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      font-size: 1rem;
+      border-radius: 10px;
+      padding: 10px;
+      border: 1px solid #888;
+      resize: none;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    button {
+      flex: 1;
+      padding: 12px 20px;
+      font-size: 1rem;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      animation: slideUp 0.6s ease;
+    }
+    .timer {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #d32f2f;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>⌨️ Typing Speed Test + Challenge Mode ⚔️</h1>
+  <div class="test-box">
+    <div class="quote" id="quote">Loading quote...</div>
+    <textarea id="typed" placeholder="Start typing here..." oninput="checkTyped()"></textarea>
+    <div class="buttons">
+      <button onclick="restartTest()">🔁 Retry</button>
+      <button onclick="startChallenge()">⚔️ Challenge Mode</button>
+    </div>
+    <div class="timer" id="timer"></div>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const quotes = [
+      "The quick brown fox jumps over the lazy dog.",
+      "Typing speed is measured in words per minute.",
+      "Javascript powers interactive web experiences.",
+      "Practice makes perfect, especially in coding.",
+      "Coding is the art of thinking in logic and problem solving."
+    ];
+
+    let quote = "";
+    let startTime = null;
+    let timerInterval = null;
+    let challengeMode = false;
+
+    const quoteEl = document.getElementById("quote");
+    const typedEl = document.getElementById("typed");
+    const resultEl = document.getElementById("result");
+    const timerEl = document.getElementById("timer");
+
+    function startTest() {
+      quote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteEl.textContent = quote;
+      typedEl.value = "";
+      resultEl.textContent = "";
+      timerEl.textContent = "";
+      startTime = new Date().getTime();
+      if (timerInterval) clearInterval(timerInterval);
+      if (challengeMode) {
+        let timeLeft = 30;
+        timerEl.textContent = `⏱️ Time Left: ${timeLeft}s`;
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          timerEl.textContent = `⏱️ Time Left: ${timeLeft}s`;
+          if (timeLeft === 0) {
+            clearInterval(timerInterval);
+            checkTyped(true);
+          }
+        }, 1000);
+      }
+    }
+
+    function checkTyped(force = false) {
+      const typed = typedEl.value.trim();
+      if (typed === quote || force) {
+        const endTime = new Date().getTime();
+        const timeTaken = (endTime - startTime) / 1000;
+        const words = quote.split(" ").length;
+        const wpm = Math.round((words / timeTaken) * 60);
+        let speed = "Average";
+        if (wpm > 60) speed = "Fast 🏎️";
+        else if (wpm < 30) speed = "Slow 🐢";
+
+        resultEl.innerHTML = `✅ Completed!<br>🕒 Time: ${timeTaken.toFixed(2)}s<br>📈 WPM: <strong>${wpm}</strong><br>⚡ Speed: ${speed}`;
+        if (timerInterval) clearInterval(timerInterval);
+      }
+    }
+
+    function restartTest() {
+      challengeMode = false;
+      startTest();
+    }
+
+    function startChallenge() {
+      challengeMode = true;
+      startTest();
+    }
+
+    window.onload = startTest;
+  </script>
+</body>
+</html>
