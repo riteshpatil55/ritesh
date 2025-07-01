@@ -1,229 +1,112 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Ritesh Patil - Official WebZone</title>
-  <meta name="description" content="Welcome to Ritesh's personal web zone! Play games, create resumes, explore music and more — all in one place, free forever." />
-  <meta name="keywords" content="Ritesh, Bunty, resume creator, game zone, music site, GitHub website, riteshpatil, web developer" />
-  <meta name="author" content="Ritesh Patil" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph (optional for social previews) -->
-  <meta property="og:title" content="Ritesh's WebZone - Games, Music & Resumes" />
-  <meta property="og:description" content="All-in-one site by Ritesh. Play games, build resumes, and vibe to music!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://riteshpatil55.github.io/" />
-</head>
-
-
-    <title>Ritesh Patil - Web Developer</title>
-    <style>
-        input, button {
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 16px;
-}
-#message {
-  margin-top: 15px;
-  font-weight: bold;
-  color: #00509E;
-}
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-right: 10px;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-
-        body {
-            background-color: #f0f8ff;
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
-        h1 {
-            color: #007acc;
-        }
-        a {
-            color: #008000;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RP's Home</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f0f8ff, #e6f7ff);
+      color: #333;
+      overflow-x: hidden;
+    }
+    nav {
+      background: #222;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    nav h1 { font-size: 1.5rem; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #87ceeb;
+    }
+    header {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 3rem 1rem;
+    }
+    .hero img {
+      max-width: 100%;
+      width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      margin-bottom: 2rem;
+    }
+    .cta {
+      background: #007bff;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .cta:hover {
+      background: #0056b3;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #222;
+      color: #ccc;
+      margin-top: 4rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to Ritesh Patil's Web Page</h1>
-    <style>
-  #gameCanvas {
-    display: block;
-    margin: 30px auto;
-    border: 3px solid #222;
-    background-color: #f0f0f0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  }
+  <nav>
+    <h1>RP's Site</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
 
-  h2 {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 28px;
-    color: #2c3e50;
-  }
+  <header>
+    <h2>Welcome to World 🌍</h2>
+    <p>Explore my mini-games, web tools, and creative coding projects — all built with 💙 and madness.</p>
+  </header>
 
-  p {
-    text-align: center;
-    font-size: 16px;
-    color: #555;
-  }
+  <section class="hero">
+    <img src="https://via.placeholder.com/400x250/87ceeb/ffffff?text=Buntyyy+Projects" alt="Hero Image">
+    <a href="projects.html" class="cta">🎮 Explore Projects</a>
+  </section>
 
-
-  input, button {
-    padding: 8px 15px;
-    font-size: 16px;
-    margin-top: 10px;
-    border-radius: 6px;
-  }
-
-
-  body { background: #EFEFEF; color: #333; padding: 20px; max-width: 600px; margin: auto; }
-  h1 { color: #00509E; }
-  button { cursor: pointer; background: #00509E; color: #fff; border: none; border-radius: 5px; }
-  img { border-radius: 50%; }
-</style>
-
-    <p>🚀</p>
-    <!-- Projects Section -->
-<h2>Projects</h2>
-<h2>1.Games</h2>
-<div style="text-align: center; margin-top: 40px;">
-  <button style="
-    background-color: #0984e3;
-    color: white;
-    font-size: 24px;
-    padding: 18px 40px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(0, 206, 201, 0.6);
-  " 
-  onmouseover="this.style.backgroundColor='#00cec9'; this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px rgba(0, 206, 201, 0.9)'"
-  onmouseout="this.style.backgroundColor='#0984e3'; this.style.transform='scale(1)'; this.style.boxShadow='0 0 15px rgba(0, 206, 201, 0.6)'"
-  onclick="location.href='game.html'">
-    🎮 Want to Play Games?
-  </button>
-</div>
-
-
-<h2>2.Music</h2>
-<div style="text-align: center; margin-top: 30px;">
-  <button style="
-    background-color: #6c5ce7;
-    color: white;
-    font-size: 22px;
-    padding: 16px 35px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(108, 92, 231, 0.7);
-  "
-  onmouseover="this.style.backgroundColor='#a29bfe'; this.style.transform='scale(1.05)'"
-  onmouseout="this.style.backgroundColor='#6c5ce7'; this.style.transform='scale(1)'"
-  onclick="location.href='music3.html'">
-    🎵 Want to Listen to Music?
-  </button>
-</div>
-<h2>3.Online Resume Creator</h2>
-<div style="text-align: center; margin-top: 30px;">
-  <button style="
-    background-color: #6c5ce7;
-    color: white;
-    font-size: 22px;
-    padding: 16px 35px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(108, 92, 231, 0.7);
-  "
-  onmouseover="this.style.backgroundColor='#a29bfe'; this.style.transform='scale(1.05)'"
-  onmouseout="this.style.backgroundColor='#6c5ce7'; this.style.transform='scale(1)'"
-  onclick="location.href='resume.html'">
-    🎓Create Resume
-  </button>
-</div>
-<h2>4.🎓 Watch Free Videos</h2>
-<div style="text-align: center; margin-top: 30px;">
-  <button style="
-    background-color: #6c5ce7;
-    color: white;
-    font-size: 22px;
-    padding: 16px 35px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(108, 92, 231, 0.7);
-  "
-  onmouseover="this.style.backgroundColor='#a29bfe'; this.style.transform='scale(1.05)'"
-  onmouseout="this.style.backgroundColor='#6c5ce7'; this.style.transform='scale(1)'"
-  onclick="location.href='eduflix.html'">
-    🎓🎓 Watch Free Videos
-  </button>
-</div>
-    <h2>5.Age Calculator</h2>
-<div style="text-align: center; margin-top: 30px;">
-  <button style="
-    background-color: #6c5ce7;
-    color: white;
-    font-size: 22px;
-    padding: 16px 35px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(108, 92, 231, 0.7);
-  "
-  onmouseover="this.style.backgroundColor='#a29bfe'; this.style.transform='scale(1.05)'"
-  onmouseout="this.style.backgroundColor='#6c5ce7'; this.style.transform='scale(1)'"
-  onclick="location.href='age1.html'">
-    Age Calculator
-  </button>
-</div>
-  <h2>6.Typing Test</h2>
-<div style="text-align: center; margin-top: 30px;">
-  <button style="
-    background-color: #6c5ce7;
-    color: white;
-    font-size: 22px;
-    padding: 16px 35px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(108, 92, 231, 0.7);
-  "
-  onmouseover="this.style.backgroundColor='#a29bfe'; this.style.transform='scale(1.05)'"
-  onmouseout="this.style.backgroundColor='#6c5ce7'; this.style.transform='scale(1)'"
-  onclick="location.href='rp.html'">
-    Test Here
-  </button>
-</div>
-
-<p>More projects coming soon — stay tuned!</p>
-    <h2>Connect With Me</h2>
-    <a href="mailto:riteshkp009@gmail.com">Email Me</a>
-    <h2>Connect With My Buddie</h2>
-    <a href="mailto:rmpatil484@gmail.com">Email Me</a><br>
-
-<h1>My Gallery</h1>
-<a href="images.html">
-    🖼️ View Images</a>
-
-
-
-
+  <footer>
+    <p>&copy; 2025 Ritesh Patil. All rights reserved.</p>
+  </footer>
 </body>
 </html>
+
