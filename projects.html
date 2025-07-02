@@ -1,60 +1,177 @@
-<html>
-<section style="padding: 2rem; background: linear-gradient(to right, #e3f2fd, #fce4ec); font-family: 'Segoe UI', sans-serif;">
-  <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 1.5rem;">🚀 RP's Projects</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RP's Projects</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-  <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-    
-    <!-- Card 1: Games -->
-    <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem; border-radius: 20px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); text-align: center;">
-      <h3>🎮 Games</h3>
-      <p>Play fun games like Stone Blast Shooter and more!</p>
-      <button onclick="location.href='game.html'" style="background: #00b894; color: white; border: none; padding: 12px 30px; border-radius: 10px; font-size: 18px; cursor: pointer; transition: 0.3s;">Play Now</button>
+    body, html {
+      height: 100%;
+      color: white;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      font-weight: 600;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    nav a[href="projects.html"] {
+      color: #00d9ff;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('panda-bg.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      color: #333;
+    }
+
+    .card button {
+      margin-top: 10px;
+      background: #0077ff;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .card button:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    .games { background: #00b894; }
+    .music { background: #6c5ce7; }
+    .resume { background: #ff7675; }
+    .videos { background: #0984e3; }
+    .age { background: #00cec9; }
+    .typing { background: #fd79a8; }
+    .gallery { background: #00cec9; }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-style: italic;
+      color: #ccc;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div>RP's World</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h2>🚀 RP's Projects</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>🎮 Games</h3>
+        <p>Play fun games like Stone Blast Shooter and more!</p>
+        <button class="games" onclick="location.href='game.html'">Play Now</button>
+      </div>
+
+      <div class="card">
+        <h3>🎵 Music Player</h3>
+        <p>Enjoy relaxing or energizing tracks with my built-in player.</p>
+        <button class="music" onclick="location.href='music3.html'">Listen</button>
+      </div>
+
+      <div class="card">
+        <h3>📝 Resume Creator</h3>
+        <p>Create professional resumes online — Bunty style!</p>
+        <button class="resume" onclick="location.href='resume.html'">Create</button>
+      </div>
+
+      <div class="card">
+        <h3>📺 Watch Free Videos</h3>
+        <p>Explore free educational content and playlists!</p>
+        <button class="videos" onclick="location.href='eduflix.html'">Watch Now</button>
+      </div>
+
+      <div class="card">
+        <h3>📅 Age Calculator</h3>
+        <p>Find out your exact age in years, months, and days.</p>
+        <button class="age" onclick="location.href='age1.html'">Calculate</button>
+      </div>
+
+      <div class="card">
+        <h3>⌨️ Typing Test</h3>
+        <p>Test your typing speed and accuracy — fast fingers win!</p>
+        <button class="typing" onclick="location.href='rp.html'">Try It</button>
+      </div>
+
+      <div class="card">
+        <h3>🖼️ Gallery</h3>
+        <p>Find out some cool images.</p>
+        <button class="gallery" onclick="location.href='images.html'">See Now</button>
+      </div>
     </div>
 
-    <!-- Card 2: Music -->
-    <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem; border-radius: 20px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); text-align: center;">
-      <h3>🎵 Music Player</h3>
-      <p>Enjoy relaxing or energizing tracks with my built-in player.</p>
-      <button onclick="location.href='music3.html'" style="background: #6c5ce7; color: white; border: none; padding: 12px 30px; border-radius: 10px; font-size: 18px; cursor: pointer; transition: 0.3s;">Listen</button>
-    </div>
-
-    <!-- Card 3: Resume -->
-    <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem; border-radius: 20px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); text-align: center;">
-      <h3>📝 Resume Creator</h3>
-      <p>Create professional resumes online — Bunty style!</p>
-      <button onclick="location.href='resume.html'" style="background: #ff7675; color: white; border: none; padding: 12px 30px; border-radius: 10px; font-size: 18px; cursor: pointer;">Create</button>
-    </div>
-
-    <!-- Card 4: Eduflix -->
-    <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem; border-radius: 20px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); text-align: center;">
-      <h3>📺 Watch Free Videos</h3>
-      <p>Explore free educational content and playlists!</p>
-      <button onclick="location.href='eduflix.html'" style="background: #0984e3; color: white; border: none; padding: 12px 30px; border-radius: 10px; font-size: 18px; cursor: pointer;">Watch Now</button>
-    </div>
-
-    <!-- Card 5: Age Calculator -->
-    <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem; border-radius: 20px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); text-align: center;">
-      <h3>📅 Age Calculator</h3>
-      <p>Find out your exact age in years, months, and days.</p>
-      <button onclick="location.href='age1.html'" style="background: #00cec9; color: white; border: none; padding: 12px 30px; border-radius: 10px; font-size: 18px; cursor: pointer;">Calculate</button>
-    </div>
-
-    <!-- Card 6: Typing Test -->
-    <div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem; border-radius: 20px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); text-align: center;">
-      <h3>⌨️ Typing Test</h3>
-      <p>Test your typing speed and accuracy — fast fingers win!</p>
-      <button onclick="location.href='rp.html'" style="background: #fd79a8; color: white; border: none; padding: 12px 30px; border-radius: 10px; font-size: 18px; cursor: pointer;">Try It</button>
-    </div>
- <!-- Card 7: Gallery -->
-<div style="background: rgba(255, 255, 255, 0.9); padding: 1.5rem; border-radius: 20px; box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); text-align: center;">
- <h3 class="section-title">🖼️ Gallery</h3>
-  <section class="gallery">
-    <div class="gallery-item">
-      <p>Find out some cool images.</p>
- <button onclick="location.href='images.html'" style="background: #00cec9; color: white; border: none; padding: 12px 30px; border-radius: 10px; font-size: 18px; cursor: pointer;">See Now</button>   
- </div>
+    <p class="footer-note">More projects coming soon — stay tuned, legends 👑</p>
   </div>
 
-  <p style="text-align: center; margin-top: 2rem; font-style: italic;">More projects coming soon — stay tuned, legends 👑</p>
-</section>
+</body>
 </html>
