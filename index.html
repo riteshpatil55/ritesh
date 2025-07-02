@@ -57,9 +57,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       text-align: center;
-      padding: 60px 20px;
+      padding: 30px 20px 60px;
       animation: fadeIn 2s ease-in-out;
     }
 
@@ -74,11 +74,15 @@
       }
     }
 
+    .hero .text-top {
+      margin-top: 20px;
+    }
+
     .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+      font-size: 2.8rem;
       font-weight: 800;
       color: #fff;
+      margin-bottom: 10px;
     }
 
     .hero p {
@@ -89,6 +93,11 @@
 
     .hero .heart {
       color: #0077ff;
+    }
+
+    .hero .buttons {
+      margin-top: auto;
+      padding-bottom: 20px;
     }
 
     .explore-btn {
@@ -102,7 +111,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 25px;
+      margin-top: 20px;
       transition: 0.3s ease;
     }
 
@@ -128,7 +137,7 @@
     }
 
     .connect {
-      margin-top: 25px;
+      margin-top: 20px;
     }
 
     .connect a {
@@ -181,12 +190,17 @@
   </nav>
 
   <div class="hero">
-    <h1>Welcome to World</h1>
-    <p>Explore my mini-games, web rolls and creative coding projects — all built with <span class="heart">💙</span></p>
-    <div class="scroll-down">⬇</div>
-    <button class="explore-btn" onclick="location.href='projects.html'">🎵 Explore Projects</button>
-    <div class="connect">
-      <p><a href="mailto:riteshkp00@gmail.com">📧 Connect with me — Click here</a></p>
+    <div class="text-top">
+      <h1>Welcome to World</h1>
+      <p>Explore my mini-games, web rolls and creative coding projects — all built with <span class="heart">💙</span></p>
+      <div class="scroll-down">⬇</div>
+    </div>
+
+    <div class="buttons">
+      <button class="explore-btn" onclick="location.href='projects.html'">🎵 Explore Projects</button>
+      <div class="connect">
+        <p><a href="mailto:riteshkp00@gmail.com">📧 Connect with me — Click here</a></p>
+      </div>
     </div>
   </div>
 
@@ -194,6 +208,5 @@
 
 </body>
 </html>
-
 
 
