@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Which Hero Are You?</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px #000;
+    }
+
+    .wheel-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      overflow: hidden;
+      transform: rotate(0deg);
+      transition: transform 4s ease-out;
+    }
+
+    .wheel div {
+      width: 50%;
+      height: 50%;
+      position: absolute;
+      background: #333;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-origin: 100% 100%;
+      font-size: 0.9rem;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .pin {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 20px solid #ffeb3b;
+    }
+
+    #spinBtn {
+      margin-top: 30px;
+      background: #0077ff;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #spinBtn:hover {
+      background: #005fcc;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 1.4rem;
+      text-shadow: 1px 1px 5px #000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Which Hero Are You? 🔥</h1>
+  <div class="wheel-container">
+    <div class="pin"></div>
+    <div class="wheel" id="wheel">
+      <!-- Slices filled dynamically by JS -->
+    </div>
+  </div>
+  <button id="spinBtn">🎯 Spin Now</button>
+  <div id="result"></div>
+
+  <script>
+    const wheel = document.getElementById("wheel");
+    const result = document.getElementById("result");
+    const spinBtn = document.getElementById("spinBtn");
+
+    const heroes = [
+      { name: "🦇 Batman", color: "#212121", message: "You are mysterious, sharp, and always prepared!" },
+      { name: "🕷️ Spiderman", color: "#e53935", message: "You're agile, funny, and a true hero at heart!" },
+      { name: "💪 Hulk", color: "#43a047", message: "You're powerful and unstoppable when needed!" },
+      { name: "⚡ Flash", color: "#fbc02d", message: "Fast, energetic, and always first!" },
+      { name: "🛡️ Captain America", color: "#1e88e5", message: "You stand for truth and justice!" },
+      { name: "🔧 Iron Man", color: "#d32f2f", message: "Genius, techy, and bold — just like Tony Stark!" },
+      { name: "🔨 Thor", color: "#7b1fa2", message: "You're noble and mighty — a true god of thunder!" }
+    ];
+
+    // Create slices
+    const angle = 360 / heroes.length;
+    heroes.forEach((hero, i) => {
+      const slice = document.createElement("div");
+      slice.textContent = hero.name;
+      slice.style.background = hero.color;
+      slice.style.transform = `rotate(${i * angle}deg) skewY(-${90 - angle}deg)`;
+      wheel.appendChild(slice);
+    });
+
+    let rotation = 0;
+
+    spinBtn.onclick = () => {
+      const randomIndex = Math.floor(Math.random() * heroes.length);
+      const spins = 5;
+      rotation += 360 * spins + (360 - randomIndex * angle - angle / 2);
+      wheel.style.transform = `rotate(${rotation}deg)`;
+
+      setTimeout(() => {
+        result.innerHTML = `<strong>${heroes[randomIndex].name}</strong><br>${heroes[randomIndex].message}`;
+      }, 4200);
+    };
+  </script>
+
+</body>
+</html>
