@@ -1,74 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Bunty</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Ritesh</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
     html, body {
       height: 100%;
+      background: url('panda-about.jpg') center/cover no-repeat;
+      color: #fff;
       display: flex;
       flex-direction: column;
-      background: linear-gradient(to right, #dfe9f3, #ffffff);
-      color: #333;
     }
+
     nav {
-      background: #222;
+      background: rgba(0, 0, 0, 0.8);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    nav h1 { font-size: 1.5rem; }
+
+    nav h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1rem;
+      gap: 1.2rem;
     }
+
     nav ul li a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
       transition: 0.3s;
     }
+
     nav ul li a:hover {
       color: #87ceeb;
     }
+
     main {
       flex: 1;
-      padding: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 50px 20px;
+      backdrop-filter: brightness(90%);
     }
+
     main img {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       margin-bottom: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      border: 3px solid #fff;
     }
+
     main h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
+      font-weight: bold;
     }
+
     main p {
       max-width: 700px;
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 15px;
     }
+
     footer {
       text-align: center;
       padding: 1rem;
-      background: #222;
+      background: rgba(0, 0, 0, 0.85);
       color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 0.5rem;
+      }
+
+      main h2 {
+        font-size: 1.7rem;
+      }
+
+      main p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <nav>
     <h1>RP's Site</h1>
     <ul>
@@ -80,15 +130,18 @@
 
   <main>
     <img src="ritesh.jpg" alt="Bunty Profile">
-    <h2>Hi, I'm Ritesh ! 👋</h2>
+    <h2>Hi, I'm Ritesh! 👋</h2>
     <p>
-      I'm a passionate coder from Karnataka who loves building fun games, useful tools, and cool web experiences. <br>
-      My favorite hobby is turning creative ideas into interactive apps and challenges. I'm always learning and improving — and I believe anything is possible with curiosity and consistency 💪
+      I'm a passionate coder from Karnataka who loves building fun games, useful tools, and cool web experiences.<br>
+      My favorite hobby is turning creative ideas into interactive apps and challenges. <br>
+      I'm always learning and improving — and I believe anything is possible with curiosity and consistency 💪
     </p>
   </main>
 
   <footer>
     <p>&copy; 2025 Ritesh Patil. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
+
