@@ -7,7 +7,10 @@ function tossCoin() {
   sound.currentTime = 0;
   sound.play();
 
+  // Apply 3D flip animation
+  coin.style.transition = 'transform 1s ease-in-out';
   coin.style.transform = 'rotateY(1080deg)';
+
   resultText.textContent = "Tossing...";
 
   setTimeout(() => {
