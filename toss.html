@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coin Toss Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🪙 Coin Toss Simulator</h1>
+    <div class="coin" id="coin">
+      <img id="coinImage" src="heads.png" alt="Coin">
+    </div>
+    <button onclick="tossCoin()">Toss Coin</button>
+    <p id="resultText">Let's toss!</p>
+  </div>
+  <audio id="coinSound" src="coin-flip.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
