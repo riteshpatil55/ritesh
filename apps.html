@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RP's Apps</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: #111;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .apps-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+    .app-card {
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      width: 280px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .app-card:hover {
+      transform: translateY(-5px);
+    }
+    .app-card img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 15px;
+    }
+    .app-card h2 {
+      margin: 10px 0 5px;
+    }
+    .app-card p {
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+    .app-card a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #00c9ff;
+      color: black;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      background-color: #111;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📱 RP's Apps</h1>
+    <p>Install and play these awesome web apps</p>
+  </header>
+
+  <section class="apps-container">
+    <div class="app-card">
+      <img src="fruit-slice/images/icon-192.png" alt="Fruit Slice">
+      <h2>Fruit Slice</h2>
+      <p>Swipe to slice fruits, avoid bombs, and score high!</p>
+      <a href="fruit-slice/index.html">Open App</a>
+    </div>
+
+    <div class="app-card">
+      <img src="coin-toss/heads.png" alt="Coin Toss">
+      <h2>Coin Toss</h2>
+      <p>Flip a coin. Heads or Tails? Simple & useful!</p>
+      <a href="coin-toss/index.html">Open App</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Ritesh Patil. All rights reserved.
+  </footer>
+</body>
+</html>

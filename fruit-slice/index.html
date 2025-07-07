@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Fruit Slice</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('images/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    #splash, #home, #gameOverScreen {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 2;
+    }
+
+    #home, #gameOverScreen {
+      display: none;
+    }
+
+    canvas {
+      background-color: transparent !important;
+      display: block;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('Service Worker Registered!'))
+      .catch(error => console.error('SW registration failed:', error));
+  }
+</script>
+
+  <div id="splash">
+    <h1>RP's Creation</h1>
+  </div>
+
+  <div id="home">
+    <h2>Fruit Slice</h2>
+    <p>Swipe to slice fruits. Avoid bombs!</p>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+  <div id="gameOverScreen">
+    <h1>Game Over</h1>
+    <p>Score: <span id="finalScore">0</span></p>
+    <p>High Score: <span id="highScore">0</span></p>
+    <button onclick="retryGame()">Retry</button>
+    <button onclick="goHome()">Home</button>
+  </div>
+
+  <canvas id="gameCanvas"></canvas>
+
+  <audio id="sliceSound" src="sounds/slice.mp3"></audio>
+  <audio id="boomSound" src="sounds/boom.mp3"></audio>
+
+  <script src="game.js"></script>
+  <script>
+    const splash = document.getElementById('splash');
+    const home = document.getElementById('home');
+
+    setTimeout(() => {
+      splash.style.display = 'none';
+      home.style.display = 'flex';
+    }, 2500);
+
+    function startGame() {
+      home.style.display = 'none';
+      startFruitSliceGame();
+    }
+
+    function retryGame() {
+      document.getElementById('gameOverScreen').style.display = 'none';
+      startFruitSliceGame();
+    }
+
+    function goHome() {
+      document.getElementById('gameOverScreen').style.display = 'none';
+      home.style.display = 'flex';
+    }
+
+    // Prevent swipe-down refresh on mobile
+    document.addEventListener('touchmove', function(e) {
+      if (e.touches.length > 1 || (e.touches[0].clientY < 50 && e.touches[0].clientY > 0)) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+  </script>
+</body>
+</html>
