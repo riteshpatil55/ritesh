@@ -2,33 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RP's Apps</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: white;
-      font-family: 'Segoe UI', sans-serif;
+    }
+    nav {
+      background-color: #111;
+      padding: 16px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
       margin: 0;
       padding: 0;
     }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    nav ul li a:hover {
+      color: #00c9ff;
+    }
+
     header {
-      padding: 20px;
       text-align: center;
-      background-color: #111;
+      padding: 40px 20px 10px;
     }
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
+
     .apps-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      padding: 40px 20px;
+      padding: 30px 20px 60px;
     }
+
     .app-card {
       background-color: #1e1e1e;
       border-radius: 16px;
@@ -63,6 +87,7 @@
       font-weight: bold;
       text-decoration: none;
     }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -72,11 +97,24 @@
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">RP's World</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
   <header>
     <h1>📱 RP's Apps</h1>
     <p>Install and play these awesome web apps</p>
   </header>
 
+  <!-- App Cards -->
   <section class="apps-container">
     <div class="app-card">
       <img src="fruit-slice/images/icon-192.png" alt="Fruit Slice">
