@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coin Toss</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 { margin-bottom: 20px; }
+    #coin {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #00c9ff;
+      color: black;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🪙 Coin Toss</h1>
+  <img id="coin" src="heads.png" alt="coin">
+  <div><button onclick="tossCoin()">Toss Coin</button></div>
+
+  <script src="coin.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
