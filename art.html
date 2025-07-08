@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RP's Divine Artwork</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(#1a1a1a, #000);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffd700;
+    }
+    .frame {
+      border: 12px solid #ffd700;
+      padding: 10px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      background-color: #111;
+      border-radius: 16px;
+      animation: fadeIn 1.5s ease;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+    .frame img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 8px;
+    }
+    .caption {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <img src="art.jpg" alt="RP's Divine Artwork" />
+  </div>
+  <div class="caption">Artwork by RP (Ritesh Patil)</div>
+</body>
+</html>
